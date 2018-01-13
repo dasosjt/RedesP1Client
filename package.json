@@ -12,6 +12,7 @@
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-polyfill": "^6.26.0",
     "immutable": "^3.8.2",
+    "mouse-position": "^2.0.1",
     "path": "^0.12.7",
     "react": "^16.1.1",
     "react-dom": "^16.1.1",
