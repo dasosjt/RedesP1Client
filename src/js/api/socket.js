@@ -8,4 +8,6 @@ const subscribeToState = cb => {
 
 const emitPositionChange = position => socket.emit('emitPositionChange', position)
 
-export { subscribeToState, emitPositionChange }
+const emitColision = toAddScore => socket.emit('emitColision', toAddScore)
+
+export { subscribeToState, emitPositionChange, emitColision }

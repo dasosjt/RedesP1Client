@@ -1,5 +1,5 @@
 import React from 'react'
-import { subscribeToState, emitPositionChange } from './api/socket'
+import { subscribeToState, emitPositionChange, emitColision } from './api/socket'
 
 class App extends React.Component {
   constructor(props){
@@ -38,6 +38,7 @@ class App extends React.Component {
                     <li> X: { client.position.x } </li>
                     <li> Y: { client.position.y } </li>
                     <li> Color: { client.color } </li>
+                    <li> Score: { client.score } </li>
                     </ul>
                   </div> 
                 </li>
