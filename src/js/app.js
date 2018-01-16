@@ -18,9 +18,11 @@ class App extends React.Component {
   }
 
   _onMouseMove(e) {
-    var bounds = document.getElementById("playground").getBoundingClientRect();
-    this.setState({ x: e.clientX - bounds.left, y: e.clientY - bounds.top })
-    emitPositionChange({ position: { x: this.state.x, y: this.state.y } })
+    if(e.target.id == "playground") {
+      var bounds = document.getElementById("playground").getBoundingClientRect();
+      this.setState({ x: e.clientX - bounds.left, y: e.clientY - bounds.top })
+      emitPositionChange({ position: { x: this.state.x, y: this.state.y } })
+    }
   }
 
   render() {
