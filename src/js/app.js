@@ -33,8 +33,7 @@ class App extends React.Component {
         <div className="app-game">
           <div 
             id="playground" 
-            className="app-game__playground" 
-            style={{height:350, width:900, animationDuration: "0.3s", border:"solid #000000"}}
+            className="app-game__playground"
             onMouseMove={ this._onMouseMove.bind(this) }>
             {this.state.clients.length ? this.state.clients.map( (client, index) => { 
               return (
