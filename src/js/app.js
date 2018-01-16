@@ -47,6 +47,7 @@ class App extends React.Component {
 
           <div className="app-game__players-list">
             <h3 className="app-game__players-list__title">Jugadores</h3>
+            <div className="app-game__players-list__player-cards">
               {
                 this.state.clients.length
                 ? this.state.clients.map( (client, index) => { 
@@ -60,6 +61,7 @@ class App extends React.Component {
                         score={ client.score } />
                   )}) : null
               }
+            </div>
           </div>
         </div>
       </div>

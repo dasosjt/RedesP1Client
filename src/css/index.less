@@ -20,7 +20,7 @@ body{
 
 	.app-game{
 		display: flex;
-		flex-direction: row;
+		flex-direction: column;
 		justify-content: center;
 
 		.app-game__playground{
@@ -32,45 +32,54 @@ body{
 			border: solid #2c5941;
 			height: 350px;
 			width: 900px;
-			animation-duration: 0.3s;
+			cursor: none;
+			margin: auto;
 		}
 
 		.app-game__players-list{
-			margin-left: 15px;
+			margin: auto;
 
 			.app-game__players-list__title{
 				text-align: center;
 			}
 
-			.player-card{
+			.app-game__players-list__player-cards {
 				display: flex;
-				flex-direction: column;
-				border-radius: 5px;
-				max-width: 300px;
-				color: white;
-				margin-bottom: 15px;
-				padding: 10px;
+				flex-direction: row;
+				flex-wrap: wrap;
+				margin: auto;
+				justify-content: center;
 
-				.player-card__id{
-					font-size: 1.2em;
-				}
-
-				.player-card__coordinates{
+				.player-card{
 					display: flex;
-					flex-direction: row;
-					justify-content: center;
+					flex-direction: column;
+					border-radius: 5px;
+					width: 300px;
+					color: white;
+					margin: 10px;
+					padding: 10px;
 
-					.player-card__x{
-						font-weight: 100;
+					.player-card__id{
+						font-size: 1.2em;
 					}
 
-					.player-card__y{
-						font-weight: 100;
-					}
-				}
+					.player-card__coordinates{
+						display: flex;
+						flex-direction: row;
+						justify-content: center;
 
-				.player-card__score{
-					font-size: 1.1em;
+						.player-card__x{
+							font-weight: 100;
+						}
+
+						.player-card__y{
+							font-weight: 100;
+						}
+					}
+
+					.player-card__score{
+						font-size: 1.1em;
+					}
 				}
 			}
 		}
