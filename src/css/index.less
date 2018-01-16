@@ -1,0 +1,73 @@
+body{
+	background-image: linear-gradient(to right, #42f4a4 0%, #2bc47f 100%);
+}
+.app {
+	display: flex;
+	flex-direction: column;
+	font-family: Tahoma, Geneva, sans-serif;
+	
+	.app-title{
+		display: flex;
+		justify-content: center;
+
+		.app-title__name{
+			font-weight: 800;
+			color: black;
+			font-size: 3em;
+			margin: 30px 0px;
+		}
+	}
+
+	.app-game{
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+
+		.app-game__playground{
+			background-color: white;
+		}
+
+		.app-game__players-list{
+			margin-left: 15px;
+
+			.app-game__players-list__title{
+				text-align: center;
+			}
+
+			.player-card{
+				display: flex;
+				flex-direction: column;
+				border-radius: 5px;
+				max-width: 300px;
+				color: white;
+				margin-bottom: 15px;
+				padding: 10px;
+
+				.player-card__id{
+					font-size: 1.2em;
+				}
+
+				.player-card__coordinates{
+					display: flex;
+					flex-direction: row;
+					justify-content: center;
+
+					.player-card__x{
+						font-weight: 100;
+					}
+
+					.player-card__y{
+						font-weight: 100;
+					}
+				}
+
+				.player-card__score{
+					font-size: 1.1em;
+				}
+			}
+		}
+	}
+}
+
+
+

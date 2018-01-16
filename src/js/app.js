@@ -1,5 +1,6 @@
 import React from 'react'
 import { subscribeToState, emitPositionChange, emitColision } from './api/socket'
+import PlayerCard from './playerCard'
 
 class App extends React.Component {
   constructor(props){
@@ -24,39 +25,41 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className="App">
-        <h1>Mouse coordinates: { this.state.x } { this.state.y }</h1>
-        <ul>
-          {
-            this.state.clients.length
-            ? this.state.clients.map( (client, index) => { 
-              return (
-                <li key={ index } >
-                  <div>
-                  { client.id }
-                    <ul>
-                    <li> X: { client.position.x } </li>
-                    <li> Y: { client.position.y } </li>
-                    <li> Color: { client.color } </li>
-                    <li> Score: { client.score } </li>
-                    </ul>
-                  </div> 
-                </li>
-              )}) : null
-          }
-        </ul>
+      <div className="app">
+        <div className="app-title">
+          <span className="app-title__name">squar.io</span>
+        </div>
 
-        <div 
-          id="playground" 
-          className="playground" 
-          style={{position: "absolute", height:350, width:900, animationDuration: "0.3s", border:"solid #000000"}}
-          onMouseMove={ this._onMouseMove.bind(this) }>
-          {this.state.clients.length ? this.state.clients.map( (client, index) => { 
-            return (
-              <div key={index} style={{position: "relative", top:client.position.y, left:client.position.x, backgroundColor:client.color, height:10, width:10}}>
-              </div>
-            )
-          }) : null}
+        <div className="app-game">
+          <div 
+            id="playground" 
+            className="app-game__playground" 
+            style={{height:350, width:900, animationDuration: "0.3s", border:"solid #000000"}}
+            onMouseMove={ this._onMouseMove.bind(this) }>
+            {this.state.clients.length ? this.state.clients.map( (client, index) => { 
+              return (
+                <div key={index} style={{position: "relative", top:client.position.y, left:client.position.x, backgroundColor:client.color, height:(client.score < 10) ? 10 : client.score, width:(client.score < 10) ? 10 : client.score}}>
+                </div>
+              )
+            }) : null}
+          </div>
+
+          <div className="app-game__players-list">
+            <h3 className="app-game__players-list__title">Jugadores</h3>
+              {
+                this.state.clients.length
+                ? this.state.clients.map( (client, index) => { 
+                  return (
+                      <PlayerCard
+                        key={ index }
+                        id={ client.id }
+                        x={ client.position.x }
+                        y={ client.position.y }
+                        color={ client.color }
+                        score={ client.score } />
+                  )}) : null
+              }
+          </div>
         </div>
       </div>
     )
