@@ -39,7 +39,7 @@ class App extends React.Component {
             onMouseMove={ this._onMouseMove.bind(this) }>
             {this.state.clients.length ? this.state.clients.map( (client, index) => { 
               return (
-                <div key={index} style={{position: "relative", top:client.position.y, left:client.position.x, backgroundColor:client.color, height:(client.score < 10) ? 10 : client.score, width:(client.score < 10) ? 10 : client.score}}>
+                <div key={index} style={{position: "absolute", top:client.position.y, left:client.position.x, backgroundColor:client.color, height:(client.score < 10) ? 10 : client.score, width:(client.score < 10) ? 10 : client.score}}>
                 </div>
               )
             }) : null}
