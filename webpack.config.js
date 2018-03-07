@@ -10,7 +10,8 @@ module.exports = {
   devServer: {
     inline: true,
     historyApiFallback: true,
-    contentBase: './build'
+    contentBase: './build',
+    port: 8081
   },
   module: {
     loaders: [{

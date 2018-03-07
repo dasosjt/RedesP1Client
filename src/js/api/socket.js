@@ -1,5 +1,5 @@
-import openSocket from 'socket.io-client'
-const socket = openSocket('http://localhost:8080')
+import connection from 'socket.io-client'
+const socket = connection('http://localhost:8080')
 
 const subscribeToState = cb => {
   socket.on('state', state => cb(null, state))
@@ -8,6 +8,4 @@ const subscribeToState = cb => {
 
 const emitPositionChange = position => socket.emit('emitPositionChange', position)
 
-const emitColision = toAddScore => socket.emit('emitColision', toAddScore)
-
-export { subscribeToState, emitPositionChange, emitColision }
+export { subscribeToState, emitPositionChange }
