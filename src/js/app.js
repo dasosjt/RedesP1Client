@@ -19,9 +19,11 @@ class App extends React.Component {
   }
 
   _onMouseMove(e) {
-    var bounds = document.getElementById("playground").getBoundingClientRect();
-    this.setState({ x: e.clientX - bounds.left, y: e.clientY - bounds.top })
-    emitPositionChange({ position: { x: this.state.x, y: this.state.y } })
+     if(e.target.id == "playground"){
+      var bounds = document.getElementById("playground").getBoundingClientRect();
+      this.setState({ x: e.clientX - bounds.left, y: e.clientY - bounds.top })
+      emitPositionChange({ position: { x: this.state.x, y: this.state.y } })
+    }
   }
 
   render() {
@@ -44,8 +46,8 @@ class App extends React.Component {
                     key={index} 
                     style={{ 
                       position: "absolute", 
-                      top: client.position.y, 
-                      left:client.position.x, 
+                      top: client.position.y - (client.score/2), 
+                      left:client.position.x - (client.score/2), 
                       backgroundColor:client.color, 
                       height:(client.score < 10) ? 10 : client.score, width:(client.score < 10) ? 10 : client.score
                     }}
@@ -61,8 +63,8 @@ class App extends React.Component {
                     key={index} 
                     style={{
                       position: "absolute", 
-                      top: comida.position.y, 
-                      left: comida.position.x, 
+                      top: comida.position.y - 5, 
+                      left: comida.position.x - 5, 
                       backgroundColor: comida.color, 
                       height: 10, 
                       width: 10
@@ -75,6 +77,7 @@ class App extends React.Component {
           </div>
           <div className="app-game__players-list">
             <h3 className="app-game__players-list__title">Jugadores</h3>
+              <div className="app-game__players-list__player-cards">
               {
                 this.state.clients.length
                 ? this.state.clients.map( (client, index) => { 
@@ -88,6 +91,7 @@ class App extends React.Component {
                         score={ client.score } />
                   )}) : null
               }
+              </div>
           </div>
         </div>
       </div>
